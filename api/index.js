@@ -25,9 +25,9 @@ const app = express();
 
 app.engine("hbs", hbs.express4());
 app.set("view engine", "hbs");
-app.set("views", "./views");
+app.set("views", path.join(__dirname, "../views"));
 
-app.use("/public", express.static("./public"));
+app.use("/public", express.static(path.join(__dirname, "../public")));
 app.use(express.urlencoded({ extended: false })); // define request parser
 // initialize hello world
 app.get("/", (req, res) => {
