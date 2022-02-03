@@ -1,6 +1,7 @@
 // import express to create a express app
 const express = require("express");
-const { engine } = require("express-handlebars");
+const hbs = require("express-hbs");
+const path = require("path");
 
 // create array to store blog, initialize with one element first
 const blogs = [
@@ -22,11 +23,11 @@ const blogs = [
 // initialize app
 const app = express();
 
-app.engine("handlebars", engine());
-
+app.engine("hbs", hbs.express4());
+app.set("view engine", "hbs");
 app.set("views", "./views");
-app.set("view engine", "hbs"); // set up template engine
 
+app.use("/public", express.static("./public"));
 app.use(express.urlencoded({ extended: false })); // define request parser
 // initialize hello world
 app.get("/", (req, res) => {
