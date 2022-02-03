@@ -1,6 +1,5 @@
 // import express to create a express app
 const express = require("express");
-// const hbs = require("express-hbs");
 const path = require("path");
 
 // create array to store blog, initialize with one element first
