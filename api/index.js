@@ -1,6 +1,6 @@
 // import express to create a express app
 const express = require("express");
-const hbs = require("express-hbs");
+// const hbs = require("express-hbs");
 const path = require("path");
 
 // create array to store blog, initialize with one element first
@@ -23,7 +23,6 @@ const blogs = [
 // initialize app
 const app = express();
 
-app.engine("hbs", hbs.express4());
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "../views"));
 
