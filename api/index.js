@@ -35,17 +35,23 @@ const isLogin = true;
 
 // define route for get home page
 app.get("/home", (req, res) => {
+  res.setHeader("Content-Type", "text/html");
+  res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
   res.render("index");
 });
 
 // define route for get blog page
 app.get("/blog", (req, res) => {
   //rende blogs data to page
+  res.setHeader("Content-Type", "text/html");
+  res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
   res.render("blog", { isLogin: isLogin, blogs: blogs });
 });
 
 // define route for get form blog page
 app.get("/add-blog", (req, res) => {
+  res.setHeader("Content-Type", "text/html");
+  res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
   res.render("form-blog");
 });
 
@@ -55,6 +61,8 @@ app.get("/blog/:id", (req, res) => {
   const blogId = req.params.id;
   const blog = blogs.find((item) => item.id == blogId);
   // render blog-detail page and send data to view
+  res.setHeader("Content-Type", "text/html");
+  res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
   res.render("blog-detail", { blog });
 });
 
